@@ -1,6 +1,6 @@
 #  Analysis of the 'trench pull force' in a numerical subduction Zone Model
 
-This repostory contains data and post-processing analysis for a 2D numerical model of subduction.
+This repostory contains data and post-processing analysis for a 2D numerical model of subduction. $x=1$
 
 The key focus of this anaysis is to examine the **vertically integrated horizontal force balance** based on a numerical subduction model, which provides approximate solutions to the stress equilbrium equations.
 
