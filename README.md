@@ -10,7 +10,7 @@ This model analysis (jupyter notebook) was developed as part of the reponse to r
 
 The notebook also considerers other issues raised by the reviewers, such as the assumption that we can neglect pressure gradients along an equiponential surface beneath the lithosphere.
 
-The mathmatical background is contain with the jupyter notbook, so that I didn't have translate it to Github-compatable markdown.
+The mathmatical background is contain with the jupyter notebook, so that I didn't have translate it to Github-compatable markdown.
 
 
 ## Overview of repository
