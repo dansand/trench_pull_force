@@ -9,7 +9,7 @@ The model run with the open-source code [MDOODZ7.0](https://github.com/tduretz/M
 This model analysis (jupyter notebook) was developed as part of the reponse to reviewers comments for the following manuscript: (https://doi.org/10.31223/X5TQ50). In this manuscript, a simple scaling relationship is developed for the net horizontal force due to the relative trench topography (the "trench pull force"). The relationship is:  
 
 ```math
-(\Delta $GPE^*$ ) (\Delta \rho ) g w_T \left( \frac{z'_m}{2} \right) \approx (\Delta \rho ) g w_T z'_{np}
+\Delta \mathrm{GPE^*} \approx (\Delta \rho ) g w_T \left( \frac{z'_m}{2} \right) \approx (\Delta \rho ) g w_T z'_{np}
 ```
 
 where $w_T$ is the relative depth of the trench, and $z'_m$ is the mechanical thickness of the lithosphere, which is generally signficantly less than the thermal thickness, with the depth of the $z'_{np}$ being approximately half $z'_m$. 
