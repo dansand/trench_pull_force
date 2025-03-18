@@ -10,6 +10,7 @@ This model analysis (jupyter notebook) was developed as part of the reponse to r
 
 ```math
 (\Delta \rho ) g w_T \left( \frac{z'_m}{2} \right) \approx (\Delta \rho ) g w_T z'_{np}
+```
 
 where $w_T$ is the relative depth of the trench, and $z'_m$ is the mechanical thickness of the lithosphere, which is generally signficantly less than the thermal thickness, with the depth of the $z'_{np}$ being approximately half $z'_m$. 
 
