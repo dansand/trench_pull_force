@@ -1,4 +1,4 @@
-#  Trench Pull Force in a Subduction Zone Model
+#  Analysis of the 'trench pull force' in a numerical subduction Zone Model
 
 This repostory contains data and post-processing analysis for a 2D numerical model of subduction.
 
@@ -15,3 +15,7 @@ where $w_T$ is the relative depth of the trench, and $z'_m$ is the mechanical th
 This scaling is based on assumptions about the depth at which the support of the non-isostatic topography occurs; this is equilivalent to a statement about the depth at which verrtical normal stress equilbrates, between a column of lithipshere beneath the trench, compared to an isostatic column. 
 
 The notebook also considerers other issues raised by the reviewers, such as the assumption that we can neglect pressure gradients along an equiponential surface beneath the lithosphere.
+
+## Overview of repository
+
+
