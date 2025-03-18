@@ -12,7 +12,7 @@ This model analysis (jupyter notebook) was developed as part of the reponse to r
 \Delta \mathrm{GPE^*} \approx (\Delta \rho ) g w_T \left( \frac{z'_m}{2} \right) \approx (\Delta \rho ) g w_T z'_{np}
 ```
 
-where $w_T$ is the relative depth of the trench, and $z'_m$ is the mechanical thickness of the lithosphere, which is generally signficantly less than the thermal thickness, with the depth of the $z'_{np}$ being approximately half $z'_m$. 
+where $w_T$ is the relative depth of the trench, and $z_m$ is the mechanical thickness of the lithosphere, which is generally signficantly less than the thermal thickness, with the depth of the $z_{np}$ being approximately half $z'_m$. 
 
 This scaling is based on assumptions about the depth at which the support of the non-isostatic topography occurs; this is equilivalent to a statement about the depth at which verrtical normal stress equilbrates, between a column of lithipshere beneath the trench, compared to an isostatic column. 
 
