@@ -11,9 +11,10 @@ The model is based on the input file (or SET) called AnneloreSubduction
 
 ## Modification to the input files
 
-The files used to run the model are included in the model_code_inputs directory
 
-A series of h5 output files are found in the model_code_inputs directory. These represent (roughly) 0.5 Myr intervals, from 0 - 10 Myr.
+## Modification output files
+
+A series of h5 output files are found in the `../model_code_inputs directory` These represent (roughly) 0.5 Myr intervals, from 0 - 10 Myr.
 
 
 ## Modification to the input files
