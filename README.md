@@ -12,6 +12,14 @@ The notebook also considerers other issues raised by the reviewers, such as the 
 
 The mathmatical background is contained in [this Jupyter notebook](https://github.com/dansand/trench_pull_force/blob/main/postprocessing_notebooks/single_step_analysis.ipynb), so that I didn't have translate it to Github-compatable markdown.
 
+## To do
+
+- [ ] Add MDOODZ7.0 input files
+- [ ] Add conda env file
+- [ ] Add licence
+- [ ] Add papers
+- [ ] Add Fig 2 from maniscript (domain)
+
 ## Overview of repository
 
 - **[model_output_data](./model_output_data)**  
