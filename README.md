@@ -1,4 +1,4 @@
-#  Analysis of the 'trench pull force' in a numerical subduction Zone Model
+#  Analysis of the 'trench pull force' in a numerical subduction zone model
 
 This repository contains data and post-processing analysis for a 2D numerical model of subduction. 
 
