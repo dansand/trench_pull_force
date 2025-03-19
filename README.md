@@ -16,6 +16,9 @@ The mathmatical background is contained with the jupyter notebook, so that I did
 ## Overview of repository
 
 - [model_output_data](./model_output_data)
+  - contains the h5 outputs from the model. These have been compacted so they contain the necessary scalar data to run the analysis
 - [postprocessing_notebooks](./postprocessing_notebooks)
+  - contains the jupyter notbook(s) that implent the analyis
 - [model_code_inputs](./model_code_inputs)
+  - contains MDOOD7.0 input files to run the model
 - [papers](./papers)
