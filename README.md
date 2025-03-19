@@ -10,8 +10,7 @@ This model analysis (jupyter notebook) was developed as part of the response to 
 
 The notebook also considerers other issues raised by the reviewers, such as the assumption that we can neglect pressure gradients along an equiponential surface beneath the lithosphere.
 
-The mathmatical background is contained with the [jupyter notebook]((./postprocessing_notebooks/single_step_analysis.ipynb)), so that I didn't have translate it to Github-compatable markdown.
-
+The mathmatical background is contained with the [Analysis notebook: single_step_analysis.ipynb](https://github.com/dansand/trench_pull_force/blob/main/postprocessing_notebooks/single_step_analysis.ipynb), so that I didn't have translate it to Github-compatable markdown.
 
 ## Overview of repository
 
