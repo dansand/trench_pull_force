@@ -2,7 +2,9 @@
 
 This repository contains data and post-processing analysis for a 2D numerical model of subduction. 
 
-The key focus of this analysis is to examine the **vertically integrated horizontal force balance** based on a numerical subduction model, which provides approximate solutions to the stress equilibrium equations.
+The focus of this analysis is to calculate the **vertically integrated horizontal force balance**. 
+
+The numerical model provides a solutions to the stress equilibrium equations in a 2d Cartesian domain, on a uniform grid. 
 
 The model was run with the open-source code [MDOODZ7.0](https://github.com/tduretz/MDOODZ7.0), developed by Thibault Duretz and collaborators, based on the input file (or SET) called `AnneloreSubduction`. This setup was designed to replicate the "forced subduction" model from https://doi.org/10.1093/gji/ggaa092. 
 
