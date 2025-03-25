@@ -8,7 +8,7 @@ The model was run with the open-source code [MDOODZ7.0](https://github.com/tdure
 
 This model analysis (jupyter notebook) was developed as part of the response to reviewers comments for the following manuscript: (https://doi.org/10.31223/X5TQ50). In this manuscript, a simple scaling relationship is developed for the net horizontal force due to the relative trench topography (the "trench pull force"). The scaling is based on assumptions about the depth at which the support of the non-isostatic topography occurs; this is equivalent to a statement about the depth at which vertical normal stress equilbrates, between a column of lithosphere beneath the trench, compared to an isostatic column. 
 
-The notebook also considerers other issues raised by the reviewers, such as the assumption that we can neglect pressure gradients along an equiponential surface beneath the lithosphere.
+The notebook also considerers other issues raised by the reviewers, such as the hydrostatic approximation - the assumption that we can neglect pressure gradients along an equiponential surface beneath the lithosphere.
 
 The mathmatical background is contained in [this Jupyter notebook](https://github.com/dansand/trench_pull_force/blob/main/postprocessing_notebooks/single_step_analysis.ipynb), so that I didn't have translate it to Github-compatable markdown.
 
