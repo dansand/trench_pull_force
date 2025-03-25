@@ -20,7 +20,7 @@ The mathmatical background is contained in [this Jupyter notebook](https://githu
 - [ ] Add conda env file
 - [ ] Add licence
 - [ ] Add papers
-- [ ] Add Fig 2 from maniscript (domain)
+- [x] Add Fig 2 from manuscript (domain)
 
 ## Overview of repository
 
