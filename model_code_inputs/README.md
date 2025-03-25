@@ -2,13 +2,9 @@
 
 ## Overview
 
-The MDOODZ7.0, code is based on the finite-difference/marker-and-cell technique. 
+The MDOODZ7.0 code is based on the finite-difference/marker-and-cell technique. 
 
 The version compile to run this model was as the commit hash `08544b3433':
-
-Numerical models of Stokes Flow, such as the one analyised in this notebook, provide solutions to the stress equilibrium equations.
-
-We therefore have direct access to stress comoponents needed to estimate terms in the vertically integrated form of the horizontal force balance, (as described in the manuscript and notebook). 
 
 This setup was dedigned to replicate the "forced subduction" model from https://doi.org/10.1093/gji/ggaa092.
 
@@ -19,6 +15,8 @@ The model is based on the input file (or SET) called AnneloreSubduction, see htt
 
 
 ## Model output files
+
+Numerical models of Stokes Flow, such as the one analyised in this notebook, provide solutions to the stress equilibrium equations. We therefore have direct access to stress comoponents needed to estimate terms in the vertically integrated form of the horizontal force balance, (as described in the manuscript and notebook). 
 
 A series of h5 output files are found in the `../model_code_inputs directory` These represent (roughly) 0.5 Myr intervals, from 0 - 10 Myr.
 
