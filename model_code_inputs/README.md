@@ -2,9 +2,9 @@
 
 ## Overview
 
-The MDOODZ7.0 code is based on the finite-difference/marker-and-cell technique. 
+MDOODZ7.0 code is an open source geodyamics code, based on the finite-difference/marker-and-cell technique, available at https://github.com/tduretz/MDOODZ7.0/.
 
-The version compile to run this model was as the commit hash `08544b3433':
+The version used to run this model has Git commit hash `08544b3433':
 
 This setup was dedigned to replicate the "forced subduction" model from https://doi.org/10.1093/gji/ggaa092.
 
@@ -13,12 +13,18 @@ The model is based on the input file (or SET) called AnneloreSubduction, see htt
 
 ## Modification to the input files
 
+Minor modification were made to correct errors in the input file. 
+
 
 ## Model output files
 
 Numerical models of Stokes Flow, such as the one analyised in this notebook, provide solutions to the stress equilibrium equations. We therefore have direct access to stress comoponents needed to estimate terms in the vertically integrated form of the horizontal force balance, (as described in the manuscript and notebook). 
 
 A series of h5 output files are found in the `../model_code_inputs directory` These represent (roughly) 0.5 Myr intervals, from 0 - 10 Myr.
+
+Due to Github space limitaio, the h5 files been filtered so they contain only the datasets required for the analysis. 
+
+The anlysis notebook shows how to convert the h5 data to a pyvista mesh, which can be viewed using the plotting capability in pyvista, or saved to a Paraview compatible format,  
 
 ## Modification to the input files
 
