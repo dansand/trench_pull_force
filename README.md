@@ -19,7 +19,7 @@ The mathmatical background is contained in [this Jupyter notebook](https://githu
 - [x] Add MDOODZ7.0 input files
 - [ ] Add conda env file
 - [x] Add licence
-- [ ] Add papers
+- [x] Add papers
 - [x] Add Fig 2 from manuscript (domain)
 
 ## Overview of repository
