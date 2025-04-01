@@ -1,0 +1,16 @@
+name: myenv
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - numpy
+  - glob2  # For glob-related functionality
+  - natsort
+  - cmocean
+  - matplotlib
+  - h5py
+  - scipy
+  - pyvista
+  - cmcrameri
+  - jupyter
+  - jupyterlab
