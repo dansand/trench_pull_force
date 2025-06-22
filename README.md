@@ -11,6 +11,11 @@ This model analysis (jupyter notebook) was developed as part of the response to 
 
 The mathematical background is contained in [this Jupyter notebook](https://github.com/dansand/trench_pull_force/blob/main/postprocessing_notebooks/single_step_analysis.ipynb), so that I didn't have translate it to Github-compatable markdown. A article preprint can be found in the `./papers` directory. 
 
+## Static image of model
+
+![Description of image](postprocessing_notebooks/figures/model_snapshot.png)
+
+
 ## Overview of repository
 
 - **[model_output_data](./model_output_data)**  
