@@ -21,7 +21,7 @@ The mathematical background is contained in [this Jupyter notebook](https://gith
 - **[model_output_data](./model_output_data)**  
   Contains the H5 outputs from the model. These files have been compacted to include the necessary data fields required for the analysis.
 
-- **[postprocessing_notebooks](./model_analysis)**  
+- **[model_analysis](./model_analysis)**  
   Contains the Jupyter notebook(s) that implement the analysis of the model outputs.
 
 - **[model_code_inputs](./model_code_inputs)**  
