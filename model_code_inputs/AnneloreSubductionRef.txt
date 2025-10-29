@@ -7,7 +7,7 @@ istep    	= 2625	/ Restart file number
 irestart 	= 0	/ Restart switch
 
 /**** OUTPUT FILES ****/
-writer_subfolder = AnneloreSubductionF2
+writer_subfolder = AnneloreSubductionR0
 writer         	= 1	/ Write grid data switch
 writer_step    	= 25	/ Write interval 
 writer_markers 	= 0	/ Write marker data switch
