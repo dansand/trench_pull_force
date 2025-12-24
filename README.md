@@ -9,7 +9,9 @@ The numerical model provides solutions to the stress equilibrium equations in a 
 This model analysis (jupyter notebook) was developed as part of the response to reviewer comments for the following manuscript: (https://doi.org/10.31223/X5TQ50). In this manuscript, a scaling relationship is developed for the net horizontal force due to the relative trench topography (the "trench pull force"). The scaling is based on assumptions about the depth at which the support of the non-isostatic topography occurs; this is equivalent to a statement about the depth at which vertical normal stress equilbrates, between a column of lithosphere beneath the trench, compared to an isostatic column in the trailing plate. The notebook also considerers other issues raised by the reviewers, such as the hydrostatic approximation in the asthenosphere.
 
 
-The mathematical background is contained in [this Jupyter notebook](https://github.com/dansand/trench_pull_force/blob/main/model_analysis/single_step_analysis.ipynb), so that I didn't have translate it to Github-compatable markdown. A article preprint can be found in the `./papers` directory. 
+The mathematical background is contained in [this Jupyter notebook](https://github.com/dansand/trench_pull_force/blob/main/model_analysis/force_balance_single_step.ipynb), so that I didn't have translate it to Github-compatable markdown. 
+
+A article preprint can be found in the `./papers` directory. 
 
 ## Static image of model
 
