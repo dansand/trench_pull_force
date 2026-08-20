@@ -36,7 +36,9 @@ A article preprint can be found in the `./papers` directory.
 ## To do
 
 - [x] Add MDOODZ7.0 input files
-- [ ] Add conda env file
+- [x] Add conda env file — [`environment.yml`](environment.yml), the shared base
+  environment for the whole trench-pull analysis suite (canonical copy lives here;
+  `trench_pull_fluidity` and future per-model repos carry identical copies)
 - [x] Add licence
 - [x] Add papers
 - [x] Add Fig 2 from manuscript (domain)
