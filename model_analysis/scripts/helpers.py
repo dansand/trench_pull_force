@@ -32,9 +32,9 @@ def vertical_faces_to_centers(F):
     A = 0.5 * (F[:, :-1] + F[:, 1:])
     return A
 
-def vertices_to_horizontal_faces(tau_xz_grid):
+def vertices_to_horizontal_faces(tau_zx_grid):
     """
-    Map a 2D shear stress field τxz defined at grid vertices (Nz, Nx)
+    Map a 2D shear stress field τ_zx defined at grid vertices (Nz, Nx)
     to horizontal face centers (Nz, Nx-1).
 
     Each horizontal face center lies midway between two adjacent
@@ -42,16 +42,16 @@ def vertices_to_horizontal_faces(tau_xz_grid):
 
     Parameters
     ----------
-    tau_xz_grid : 2D array (Nz, Nx)
-        Shear stress τxz at grid vertices (Pa).
+    tau_zx_grid : 2D array (Nz, Nx)
+        Shear stress τ_zx at grid vertices (Pa).
 
     Returns
     -------
     sxz_face : 2D array (Nz, Nx-1)
-        Shear stress τxz mapped to horizontal face centers (Pa).
+        Shear stress τ_zx mapped to horizontal face centers (Pa).
         Shape is (Nz, Nx-1).
     """
-    sxz_face = 0.5 * (tau_xz_grid[:, :-1] + tau_xz_grid[:, 1:])
+    sxz_face = 0.5 * (tau_zx_grid[:, :-1] + tau_zx_grid[:, 1:])
     return sxz_face
 
 def vertices_to_vertical_faces(tau_vertex):
@@ -71,12 +71,12 @@ def vertices_to_vertical_faces(tau_vertex):
     """
     return 0.5 * (tau_vertex[:-1, :] + tau_vertex[1:, :])
 
-def residual_divergence_column(i_cell, sig_xx_grid, tau_xz_grid, vzpts, dx, dz):
+def residual_divergence_column(i_cell, sig_xx_grid, tau_zx_grid, vzpts, dx, dz):
     """Discrete divergence residual for a single column."""
     sxx_face = centers_to_vertical_faces(sig_xx_grid)          # (Nz-1, Nx)
     d_sxx_dx = (sxx_face[:, i_cell+1] - sxx_face[:, i_cell]) / dx
 
-    sxz_face = 0.5 * (tau_xz_grid[:, i_cell] + tau_xz_grid[:, i_cell+1])
+    sxz_face = 0.5 * (tau_zx_grid[:, i_cell] + tau_zx_grid[:, i_cell+1])
     d_sxz_dz = np.diff(sxz_face) / dz
 
     residual_z = d_sxx_dx + d_sxz_dz
@@ -86,12 +86,12 @@ def residual_divergence_column(i_cell, sig_xx_grid, tau_xz_grid, vzpts, dx, dz):
 
 
 
-def residual_divergence_grid(sig_xx_grid, tau_xz_grid, vzpts, dx, dz):
+def residual_divergence_grid(sig_xx_grid, tau_zx_grid, vzpts, dx, dz):
     """Vectorised discrete divergence residual (identical behaviour to column-wise)."""
     sxx_face = centers_to_vertical_faces(sig_xx_grid)               # (Nz-1, Nx)
     d_sxx_dx = (sxx_face[:, 1:] - sxx_face[:, :-1]) / dx            # (Nz-1, Nx-1)
 
-    sxz_face = 0.5 * (tau_xz_grid[:, :-1] + tau_xz_grid[:, 1:])     # (Nz, Nx-1)
+    sxz_face = 0.5 * (tau_zx_grid[:, :-1] + tau_zx_grid[:, 1:])     # (Nz, Nx-1)
     d_sxz_dz = (sxz_face[1:, :] - sxz_face[:-1, :]) / dz            # (Nz-1, Nx-1)
 
     R_div = d_sxx_dx + d_sxz_dz                                     # (Nz-1, Nx-1)

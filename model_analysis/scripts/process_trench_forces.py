@@ -49,11 +49,11 @@ def process_file(h5_path):
     new_array = np.zeros((topo_.shape[0], 3))
     new_array[:, :2] = topo_
     topo = new_array[np.argsort(new_array[:, 0])]
-    tloc = topo[:, 0][np.argmin(topo[:, 1])]
-    tindx = np.argmax(cxpts > tloc)
+    x_trench = topo[:, 0][np.argmin(topo[:, 1])]
+    tindx = np.argmax(cxpts > x_trench)
     topo_mesh = np.interp(cxpts, topo[:, 0], topo[:, 1])
     # Configure stresses
-    tau_xz_grid = -1 * np.flipud(h5file["/Vertices"]["sxz"][:].reshape(Nz, Nx))
+    tau_zx_grid = -1 * np.flipud(h5file["/Vertices"]["sxz"][:].reshape(Nz, Nx))
     pressure_grid = np.flipud(h5file["/Centers"]["P"][:].reshape(Nz-1, Nx-1))
     sigma_I_grid = -1 * pressure_grid                         # (Nz-1, Nx-1)
     tau_xx_grid = np.flipud(h5file["/Centers"]["sxxd"][:].reshape(Nz-1, Nx-1))
@@ -62,23 +62,23 @@ def process_file(h5_path):
     sig_zz_grid = sigma_I_grid + tau_zz_grid
     diff_stress_grid = tau_xx_grid - tau_zz_grid
     #temp_grid = np.flipud(h5file["/Centers"]['T'][:].reshape(Nz-1, Nx-1))
-    tau_xz_face = vertices_to_horizontal_faces(tau_xz_grid)
-    tau_zx_face = vertices_to_vertical_faces(tau_xz_grid)  # (Nz-1, Nx)
-    Vx = -1 * trapz(tau_zx_face, dx=dz, axis=0)  # integrate over z, result shape (Nx,)
+    tau_zx_hface = vertices_to_horizontal_faces(tau_zx_grid)
+    tau_zx_vface = vertices_to_vertical_faces(tau_zx_grid)  # (Nz-1, Nx)
+    Vx = -1 * trapz(tau_zx_vface, dx=dz, axis=0)  # integrate over z, result shape (Nx,)
     Vx = 0.5 * (Vx [:-1] + Vx [1:])
     V_trench =  Vx[tindx]
     dVdx = np.gradient(Vx, dx)
     vtopo = dVdx / (delrho * g)
     window = 500  # search range in km (or adjusted if vxpts in m)
-    mask_x = vxpts > tloc
-    tau_sum = np.sum(tau_zx_face, axis=0)[mask_x]
+    mask_x = vxpts > x_trench
+    tau_sum = np.sum(tau_zx_vface, axis=0)[mask_x]
     indx = np.argmin(-1 * tau_sum[:window])
     xi_loc = vxpts[mask_x][:window][indx]
     xi_indx = np.argmin(np.abs(vxpts - xi_loc))
-    xi_dist = xi_loc - tloc
+    xi_dist = xi_loc - x_trench
     trench_relative_topo = (
         topo[:, 1][np.argmin(np.abs(topo[:, 0] - xi_loc))] -
-        topo[:, 1][np.argmin(np.abs(topo[:, 0] - tloc))]
+        topo[:, 1][np.argmin(np.abs(topo[:, 0] - x_trench))]
     )
     xm_indx = int(tindx + 0.5 * (xi_indx - tindx))
     np_mask = np.logical_and(czpts>10e3, czpts<50e3)
@@ -103,8 +103,8 @@ def process_file(h5_path):
     bar_sig_zz = np.cumsum(sig_zz_face * dz, axis=0)
     diff_stress_face = centers_to_vertical_faces(diff_stress_grid)
     bar_diff_stress = np.cumsum(diff_stress_face * dz, axis=0)
-    tau_xz_face = vertices_to_horizontal_faces(tau_xz_grid)
-    FB_x_grid = np.cumsum(tau_xz_face  * dx, axis=1)
+    tau_zx_hface = vertices_to_horizontal_faces(tau_zx_grid)
+    FB_x_grid = np.cumsum(tau_zx_hface  * dx, axis=1)
     #calc the delta quantities
     ref_index = tindx
     del_bar_sig_xx      = bar_sig_xx[:, 1:]      - bar_sig_xx[:, [ref_index]]
@@ -127,7 +127,7 @@ def process_file(h5_path):
     #######
     return {
         "time_Myr": time,
-        "trench_loc": tloc,
+        "trench_loc": x_trench,
         "trench_rel_topo": trench_relative_topo,
         "neutral_plane_depth": np_depth,
         "shear_res_trench": 1e-12*V_trench, 
