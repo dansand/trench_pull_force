@@ -80,11 +80,15 @@ key points. The code went the other way.
 `σ_xz_zdown = −σ_xy_yup`, applied at extraction. Each occurrence sits in one of two sign
 conventions and a blind rename would silently flip physics.
 
-**Decision (2026-08-20): `τ_zx`** (and `τ_zx,x` for its along-strike gradient), as the
-manuscript has it: `\tau_{zx}` 33× + `\tau_{zx,x}` 45× (counts above) vs. two strays of
-`\tau_{xz}`/`\sigma_{xz}` across main.tex + si.tex. Python identifier `tau_zx`. The
-rename is *notation only* — each occurrence must be checked against §5's sign
-conventions by hand, never batch-replaced.
+**Decision (2026-08-20, refined): the index order `zx` is what is binding, not the
+letter.** For the off-diagonal component the deviator equals the full tensor, so
+`τ_zx = σ_zx` identically; the letter is context-dependent — `τ` in the manuscript's
+deviatoric register (the default), `σ` where the total-stress register is genuinely
+meant (e.g. raw extraction from the model). What must follow the manuscript is the
+index order: `zx`, never `xz` (`\tau_{zx}` 33× + `\tau_{zx,x}` 45×, counts above, vs.
+two `xz`/`σ` strays). Renames are order-only and value-preserving (symmetric tensor) —
+but each occurrence is still checked against §5 so surrounding prose does not silently
+switch sign conventions.
 
 ### ✅ DECIDED 5 — the slab-frame coordinates (new; no manuscript precedent)
 
@@ -111,9 +115,16 @@ code uses the macro **zero** times — it writes the quantity longhand as `GPE*`
 plain-text spelling for Python identifiers and one LaTeX spelling for labels.
 
 **Decision (2026-08-20): as proposed, per the manuscript's own macro** — rendered LaTeX
-`\mathrm{GPE}^*` (what `\GPE` expands to), always `\Delta\mathrm{GPE}^*` when it is a
+`\mathrm{GPE}^*` (what `\GPE` expands to), `\Delta\mathrm{GPE}^*` when it is a
 difference; Python identifiers `gpe_star` / `delta_gpe_star`. No space before the `*`,
 ever.
+
+**Definitions (recorded 2026-08-20, so the sweep cannot conflate them):**
+`\mathrm{GPE}` (no star) is the columnwise resultant of the *lithostatic* pressure.
+`\mathrm{GPE}^*` is the columnwise resultant of the *true vertical normal stress*
+($-\bar\sigma_{zz}$; the manuscript's "corrected GPE"). `\Delta` always denotes the
+difference between columns. They are distinct, well-defined quantities: never star a
+genuine lithostatic `GPE`, never add `\Delta` to a single-column resultant.
 
 ### ✅ DECIDED 4 — the free-surface / deflection quantity
 
@@ -139,10 +150,13 @@ All decisions in §1 are closed; every row is now enforced.
 | Canonical (LaTeX) | Python identifier | Deprecated / variants | Meaning | Units |
 |---|---|---|---|---|
 | `N_D` | `n_d` | `F_D`, `F_{D}` | in-plane resultant of the deviatoric normal stress | N/m |
-| `\Delta\mathrm{GPE}^*` | `delta_gpe_star` | `GPE*`, `GPE^*`, `Delta GPE`, `ΔGPE` | corrected gravitational potential energy | N/m |
+| `\mathrm{GPE}^*` | `gpe_star` | `GPE*`, `GPE^*` | corrected GPE: columnwise resultant of the true vertical normal stress | N/m |
+| `\Delta\mathrm{GPE}^*` | `delta_gpe_star` | `Delta GPE`, `ΔGPE` | between-column difference of $\mathrm{GPE}^*$ | N/m |
+| `\mathrm{GPE}` | `gpe` | — | lithostatic GPE: columnwise resultant of the lithostatic pressure — distinct quantity, never starred by a sweep | N/m |
 | `F_B` | `f_b` | — | basal traction resultant | N/m |
 | `V` | `v_resultant` | — | transverse (shear) stress resultant, $V=\int\tau_{zx}\,dz$ | N/m |
-| `\tau_{zx}` | `tau_zx` | `\tau_{xz}`, `\sigma_{xz}`, `sigma_xz` | shear stress component | Pa |
+| `\tau_{zx}` | `tau_zx` | `\tau_{xz}`, `tau_xz` | shear stress component, deviatoric register (default) | Pa |
+| `\sigma_{zx}` | `sigma_zx` | `\sigma_{xz}`, `sigma_xz` | same component, total-stress register ($=\tau_{zx}$ off-diagonal); index order `zx` binding | Pa |
 | `\tau_{zx,x}` | `dtau_zx_dx` | — | along-strike gradient of shear stress | Pa/m |
 | `w` | `w` | — | vertical deflection, positive downward | m |
 | `w_T` | `w_trench` | — | trench deflection | m |
@@ -230,8 +244,9 @@ component must preserve them.
   `trench_pull_force` orientation: subducting plate on the right, $v_x < 0$ in the
   trailing plate, slab descending leftward. Wired through `MIRROR_X`,
   `SUBDUCTING_SIDE`, `SEAWARD_SIGN`.
-- Off-diagonal stress sign flip $\sigma_{xz}^{z\text{-down}} = -\sigma_{xy}^{y\text{-up}}$
-  is applied at extraction, not inside $V$'s formula.
+- Off-diagonal stress sign flip $\sigma_{zx}^{z\text{-down}} = -\sigma_{xy}^{y\text{-up}}$
+  is applied at extraction, not inside $V$'s formula. (Index order follows D2: `zx` in
+  the z-down frame; the y-up component keeps its native $\sigma_{xy}$ name.)
 - Diagonal components $\sigma_{xx}, \sigma_{zz}$ are invariant under both the $y\to z$
   flip and the $x$-mirror — no sign change, only `np.flip` for spatial reordering.
 - **Slab frame (D5, ratified 2026-08-20):** $\xi$ slab-parallel, $\eta$ slab-normal,
@@ -256,4 +271,5 @@ follows deliberately.
 ---
 
 *Last updated: 2026-08-20 — all five §1 decisions closed (D1–D4 from the manuscript,
-D5 ratified). Not yet swept: the audit has not been run against this closed spec.*
+D5 ratified) and swept across all four repos the same day. `/symbology-audit` clean,
+14 rules. Figures/PDF builds regenerate in the sweep's final step.*
