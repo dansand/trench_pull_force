@@ -2,7 +2,7 @@
 
 Structured model description and raw-field disambiguation for this repo's analysis.
 Schema: `trench-pull-model/1` (defined in the umbrella project,
-`tools/MODEL_SCHEMA.md`); symbols follow `SYMBOLOGY.md` in this repo.
+`tools/MODEL_SCHEMA.md`); symbols follow the trench-pull umbrella project's `SYMBOLOGY.md`.
 
 ```yaml
 schema: trench-pull-model/1
