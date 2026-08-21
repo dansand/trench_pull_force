@@ -46,6 +46,11 @@ extraction:
   - "no mirror: subducting plate is already on the right"
   - "vertices_to_horizontal_faces / vertices_to_vertical_faces map the vertex
      shear onto face centers (tau_zx_hface / tau_zx_vface) for the integrals"
+  - "SIGN SENSE: the extracted tau_zx is the NEGATIVE of the manuscript
+     register's tau_zx (verified: int tau_zx dz < 0 at the trench, while the
+     register's V is positive there). The single compensating minus lives in
+     forming the resultant, Vx = -trapz(tau_zx_vface) — the plotted V is the
+     register's V. Do not add further sign flips downstream."
 
 field_map:
   - {native: /Centers/P,      location: centers,  canonical: "-sigma_I (total pressure)",
